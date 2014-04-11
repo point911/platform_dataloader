@@ -1,0 +1,40 @@
+{
+    "childMap": {
+        "address":{
+            "key": "address!UUID_1",
+            "value": {
+                "childMap": "None",
+                "valueMap":{
+                    "postalCode": "04543-000",
+                    "state": "PAULO",
+                    "addressType": "LEGAL",
+                    "line1": "AV PRESIDENTE JUSCELINO KUBITSCHEK 360",
+                    "country": "UNITED STATES",
+                    "city": "PAULO"
+                },
+                "deleted": "false",
+                "key": "UUID_1"
+            }
+        },
+        "ID":{
+            "key": "ID!UUID_2",
+            "value": {
+                "childMap": "None",
+                "valueMap":{
+                    "id": "3215335",
+                    "idType": "AVOX"
+                },
+                "deleted": "false",
+                "key": "ID!UUID_2"
+            }
+        }
+    },
+
+    "valueMap": {
+        "tradingStatus": "ACTIVE",
+        "riskLevel": "low",
+        "legalEntityName": "VALENTIN77"
+    },
+
+    "key": "feed_id"
+}
