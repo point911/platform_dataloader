@@ -144,25 +144,59 @@ pc = PlatformConnector()
 
 # Main Flow
 
-LE_KEY = "IdentitySet:Entity:LegalEntity!ibank!Feed:Strevus"
+LE_KEY = "Entity:LegalEntity!Avox!Feed:Strevus"
 
 # 02 Generate Object Key
 resp1 = pc.getOrganizationByLegalEntityKey(LE_KEY)
 print resp1
 organization_id = resp1['id']
 
-resp2 = pc.getFeedByName("LE_Outreach", organization_id)
-print resp2
+resp2 = pc.getFeedByName("AVOX", organization_id)
+#print resp2
 feed_id = resp2['id']
 
 # 06 Save Entity
 # we need feed id
 
 e_xml = EntityConstructor().create_entity("outreach", feed_id)
-print etree.tostring(etree.fromstring(e_xml), pretty_print=True)
+#print etree.tostring(etree.fromstring(e_xml), pretty_print=True)
 
 resp3 = pc.saveEntity(e_xml)
 print resp3
 
+
+
+# entity_params = pc.services['DATA_SERVICE'].factory.create('saveEntityParams')
+# entity = pc.services['DATA_SERVICE'].factory.create('entity')
+# le_key = pc.services['DATA_SERVICE'].factory.create('objectKey')
+# le_key.value = "Entity:LegalEntityOutreach!!Feed:" + resp2['id']
+# entity.key = le_key
+# entity_params.entity = entity
+
+
+
+
+# value_map = pc.services['DATA_SERVICE'].factory.create('adaptedMap')
+# print value_map
+#value_map['entry'].append({"legalEntityName":"dwed"})
+
+#entity_params.entity.valueMap = value_map
+#print entity_params
+
+
+
+# resp3 = pc.saveEntity(entity_params)
+
+# print resp3
+
+
+#print pc.services['DATA_SERVICE'].wsdl['services'][0]['ports'][0]['binding']['operations']['saveEntity']
+
+#print pc.services['DATA_SERVICE'].service.saveEntity(entity_params)
+
+#print pc.services['DATA_SERVICE'].wsdl
+
+#for method in pc.services['DATA_SERVICE'].wsdl.services[0].ports[0].methods.values():
+#    print '%s(%s)' % (method.name, ', '.join('%s: %s' % (part.type, part.name) for part in method.soap.input.body.parts))
 
 

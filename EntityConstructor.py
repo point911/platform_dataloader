@@ -168,7 +168,7 @@ class EntityConstructor(object):
                 sub_child_value_key.text = child_key_name + "!" + child_uuid
             elif key == "valueMap":
                 for value_map_entry_name, value_map_entry_value in child_template['valueMap'].iteritems():
-                    sub_entry = EntityConstructor.create_child_value_map_entry(value_map_entry_name,)
+                    sub_entry = EntityConstructor.create_child_value_map_entry(value_map_entry_name)
                     sub_child_value.append(sub_entry)
 
             child_value.append(sub_child_value)
@@ -259,8 +259,3 @@ class EntityConstructor(object):
 
 
 
-e = EntityConstructor()
-#pprint(e.le_outreach_template)
-
-le_xml = e.create_entity("outreach", "feedid")
-print etree.tostring(etree.fromstring(le_xml), pretty_print=True)
